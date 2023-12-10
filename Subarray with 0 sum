@@ -1,0 +1,18 @@
+class Solution {
+    static boolean findsum(int arr[], int n) {
+        Map<Integer, Integer> mp = new HashMap<>();
+        mp.put(0, 1);
+        int sum = 0;
+        
+        for(int num: arr) {
+            sum += num;
+            if(mp.containsKey(sum))
+                return true;
+            
+            mp.
+            put(sum, mp.getOrDefault(sum, 0));
+        }
+        
+        return false;
+    }
+}
