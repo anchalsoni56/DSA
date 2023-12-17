@@ -1,0 +1,15 @@
+ 
+class Solution {
+    int findMaxSum(int arr[], int n) {
+        int incl = arr[0];
+        int excl = 0;
+        for (int i = 1; i < arr.length; i++) {
+            int nextInc = excl + arr[i];
+            int nextExc = Math.max(incl, excl);
+            
+            incl = nextInc;
+            excl = nextExc;
+        }
+        return Math.max(incl, excl);
+    }
+}
