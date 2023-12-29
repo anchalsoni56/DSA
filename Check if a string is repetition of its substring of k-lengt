@@ -1,0 +1,25 @@
+class Solution {
+    static int kSubstrConcat(int n, String s, int k) {
+        if (n % k != 0) {
+            return 0;
+        }
+
+        HashMap<String, Integer> map = new HashMap<>();
+        HashSet<String> uniqueSubstrings = new HashSet<>();
+
+        for (int i = 0; i <n ; i += k) {
+            String temp = s.substring(i, i + k);
+
+            if (uniqueSubstrings.contains(temp)) {
+                map.put(temp, map.getOrDefault(temp, 0) + 1);
+            } else {
+                uniqueSubstrings.add(temp);
+            }
+        }
+
+        if (uniqueSubstrings.size() > 2) {
+            return 0;
+        }
+
+        return 1;
+    }}
