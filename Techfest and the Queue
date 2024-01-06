@@ -1,0 +1,25 @@
+
+public class Solution {
+    public static long countPrimeFactors(long n) {
+        long count = 0;
+        for (int i = 2; i * i <= n; i++) {
+            while (n % i == 0) {
+                n /= i;
+                count++;
+            }
+        }
+        if (n > 1) {
+            count++;
+        }
+        return count;
+    }
+
+    public static long sumOfPowers(long a, long b) {
+        long ans = 0;
+        for (long i = a; i <= b; i++) {
+            ans += countPrimeFactors(i);
+        }
+        return ans;
+    }
+
+}
